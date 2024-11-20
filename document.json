@@ -1,0 +1,189 @@
+// Affected Products Collection
+db.affected_products.insertMany([
+    {
+        product_id: ObjectId(),
+        product_name: "Product A",
+        vendor: "Vendor A",
+        created_at: ISODate(),
+        updated_at: ISODate()
+    }
+]);
+
+// Attack Vector Categories Collection
+db.attack_vector_categories.insertMany([
+    {
+        vector_category_id: ObjectId(),
+        category_name: "Network",
+        description: "Description of Network category",
+        created_at: ISODate(),
+        updated_at: ISODate()
+    }
+]);
+
+// Attack Vectors Collection
+db.attack_vectors.insertMany([
+    {
+        vector_id: ObjectId(),
+        name: "Phishing",
+        description: "Email-based attack",
+        vector_category_id: ObjectId("..."), // Reference ID
+        severity_level: 3,
+        created_at: ISODate(),
+        updated_at: ISODate(),
+        category: "Email-based Attacks"
+    }
+]);
+
+// Countries Collection
+db.countries.insertMany([
+    {
+        country_code: "US",
+        country_name: "United States",
+        created_at: ISODate(),
+        updated_at: ISODate()
+    }
+]);
+
+// Geolocations Collection
+db.geolocations.insertMany([
+    {
+        geolocation_id: ObjectId(),
+        ip_address: "192.168.0.1",
+        country: "US",
+        region: "California",
+        city: "San Francisco",
+        latitude: 37.7749,
+        longitude: -122.4194,
+        created_at: ISODate(),
+        updated_at: ISODate()
+    }
+]);
+
+// Global Threats Collection
+db.global_threats.insertMany([
+    {
+        threat_id: ObjectId(),
+        name: "Malware Attack",
+        description: "Global malware outbreak",
+        first_detected: ISODate("2024-11-19"),
+        last_updated: ISODate("2024-11-20"),
+        severity_level: 5,
+        data_retention_until: ISODate("2026-11-19"),
+        created_at: ISODate(),
+        updated_at: ISODate()
+    }
+]);
+
+// Incident Logs Audit Collection
+db.incident_logs_audit.insertMany([
+    {
+        audit_id: ObjectId(),
+        action_type: "INSERT",
+        incident_id: ObjectId("..."), // Reference
+        actor_id: ObjectId("..."), // Reference
+        vector_id: ObjectId("..."), // Reference
+        vulnerability_id: ObjectId("..."), // Reference
+        geolocation_id: ObjectId("..."), // Reference
+        incident_date: ISODate(),
+        target: "Company Network",
+        industry_id: ObjectId("..."), // Reference
+        impact: "High",
+        response: "Contained",
+        response_date: ISODate(),
+        data_retention_until: ISODate("2026-11-19"),
+        action_timestamp: ISODate(),
+        performed_by: "system"
+    }
+]);
+
+// Industries Collection
+db.industries.insertMany([
+    {
+        industry_id: ObjectId(),
+        industry_name: "Finance",
+        description: "Financial services industry",
+        created_at: ISODate(),
+        updated_at: ISODate()
+    }
+]);
+
+// Roles and Privileges Collections
+db.roles.insertMany([
+    {
+        id: ObjectId(),
+        name: "Admin"
+    }
+]);
+
+db.privileges.insertMany([
+    {
+        id: ObjectId(),
+        name: "Full Access"
+    }
+]);
+
+db.roles_privileges.insertMany([
+    {
+        role_id: ObjectId("..."), // Reference
+        privilege_id: ObjectId("...") // Reference
+    }
+]);
+
+// Threat Predictions Collection
+db.threat_predictions.insertMany([
+    {
+        prediction_id: ObjectId(),
+        prediction_date: ISODate("2024-11-20"),
+        threat_id: ObjectId("..."), // Reference
+        probability: 0.85,
+        predicted_impact: "High Impact Expected",
+        data_retention_until: ISODate("2026-11-19"),
+        created_at: ISODate()
+    }
+]);
+
+// Users Collection
+db.users.insertMany([
+    {
+        id: ObjectId(),
+        username: "john_doe",
+        password: "hashed_password",
+        consent_to_data_usage: true,
+        email: "john.doe@example.com",
+        enabled: true
+    }
+]);
+
+// Vulnerabilities Collection
+db.vulnerabilities.insertMany([
+    {
+        vulnerability_id: ObjectId(),
+        cve_id: "CVE-2024-0001",
+        description: "Critical vulnerability",
+        published_date: ISODate("2024-11-01"),
+        severity_score: 9.8,
+        created_at: ISODate(),
+        updated_at: ISODate()
+    }
+]);
+
+// Incident Logs Collection
+db.incident_logs.insertMany([
+    {
+        incident_id: ObjectId(),
+        actor_id: ObjectId("..."), // Reference
+        vector_id: ObjectId("..."), // Reference
+        vulnerability_id: ObjectId("..."), // Reference
+        geolocation_id: ObjectId("..."), // Reference
+        incident_date: ISODate("2024-11-19T12:00:00Z"),
+        target: "Corporate Email System",
+        industry_id: ObjectId("..."), // Reference
+        impact: "Severe",
+        response: "System Isolation",
+        response_date: ISODate("2024-11-20T15:00:00Z"),
+        data_retention_until: ISODate("2026-11-19"),
+        created_at: ISODate(),
+        updated_at: ISODate(),
+        industry: "Technology"
+    }
+]);
